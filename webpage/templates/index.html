@@ -1,0 +1,34 @@
+            {% extends 'base.html' %}
+
+            {% load static %}
+            {% block content %}
+
+            <br>
+            <br>
+
+            <section id="page" role="main">
+
+                <article class="wrap post-content">
+                    <figure class="photo ll">
+                        <img src="{% static 'img/ram.jpg' %}" style="width: 18rem; alt="Ramón Arias" />
+                       
+                    </figure>
+
+                    <header>
+                        <hgroup>
+                            <h1 class="main-title ft">Ramón Arias</h1>
+                           
+                        </hgroup>
+                    </header>
+            <h3 id="greeting">Hola !</h3>
+
+            <p>Soy abogado y trabajo en el despacho <a href="https://www.ram.org.mx">RAM ABOGADOS, S.C.</a> 
+                soy el socio fundador del despacho, y cuento con más de 15 años de práctica profesional. </p>
+
+            <p>Soy egresado de la Universidad del Valle de México, campus Guadalajara, estudié la maestría en Derecho Corporativo en 
+                la Universidad Latinoamericana, y actualmente curso el Doctorado en Derecho Constitucional y Amparo en la Universidad
+                Virtual del Estado de Michocán.
+            </p>
+
+            
+            {% endblock %}

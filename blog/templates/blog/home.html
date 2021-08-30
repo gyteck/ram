@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<h1>Posts</h1>
+
+
+{% if page_obj.has_previous %}
+<a href="{% url 'blog:home' %}?page={{ page_obj.previous_page_number }}">
+    Ir a página {{ page_obj.previous_page_number }}
+</a>
+{% endif %}
+La página actual es {{ page_obj.number }}
+{% if page_obj.has_next %}
+<a href="{% url 'blog:home' %}?page={{ page_obj.next_page_number }}">
+    Ir a página {{ page_obj.next_page_number }}
+</a>
+{% endif %}
+<br><br>
+
+
+<ul>
+    {% for post in object_list %}
+
+    <li> <a href="{% url 'blog:article-detail' post.pk %}">{{ post.title }}</a> - By: 
+        {{ post.author.first_name}} {{post.author.last_name }} - {{ post.post_date }}
+        {{ post.category }} 
+
+        {% if user.is_authenticated %}
+            <small> <a href="{% url 'blog:article-edit' post.pk %} ">(Edit) </a></small>
+            <small> <a href="{% url 'blog:article-delete' post.pk %}">(Delete) </a></small>
+        {% endif %}
+<br>
+        {{ post.body | slice:":300"}} <br><br>
+    </li>
+
+
+
+    {% endfor %}
+</ul>
+
+{% endblock %}
